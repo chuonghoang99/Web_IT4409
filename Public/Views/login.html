@@ -20,26 +20,25 @@
          </div>
          <div class="form-container">
             <div class="form-inner">
-               <form action="#" class="login">
-                  <div class="field">
-                     <input type="text" placeholder="Email" required>
-                  </div>
-                  <div class="field">
-                     <input type="password" placeholder="Mật khẩu" required>
-                  </div>
-                  <div class="pass-link">
-                     <a href="#">Quên mật khẩu</a>
-                  </div>
-                  <div class="field btn">
-                     <div class="btn-layer"></div>
-                     <input type="submit" value="Đăng nhập">
-                  </div>
-               </form>
-                  </div>
-               </form>
+                <form action="http://localhost:8080/WebProject-1.0-SNAPSHOT/login" method="post" class="login">
+                    <div class="field">
+                        <input name="username" type="text" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                        <input name="password" type="password" placeholder="Mật khẩu" required>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Quên mật khẩu</a>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Đăng nhập">
+                    </div>
+                </form>
             </div>
-         </div>
-      </div>
+            </form>
+        </div>
       
    </body>
+   <!-- <script src="../JS/login.js"></script> -->
 </html>
