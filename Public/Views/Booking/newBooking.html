@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="../../CSS/menu-left.css" />
         <link rel="stylesheet" href="../../CSS/page-content.css" />
         <link rel="stylesheet" href="../../CSS/popup.css" />
+        <link rel="stylesheet" href="../../CSS/dialog.css">
     </head>
     <body>
         <div id="page-wrapper">
@@ -218,15 +219,35 @@
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <div class="info-content">
-                                    <p
-                                        style="
-                                            color: red;
-                                            font-size: 40px;
-                                            text-align: center;
-                                        "
-                                    >
-                                        Chúc ngủ ngon
-                                    </p>
+                                    <p>Customer Info</p>
+                                    <div class="form-container">
+                                        <form>
+                                            <ul class="form-style-1">
+                                                <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="First" /> </li>
+                                                <li><label>Age<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="Age" /></li>
+                                                <li>
+                                                    <label>Phone Number <span class="required">*</span></label>
+                                                    <input type="email" name="field3" class="field-long" />
+                                                </li>
+                                                <li>
+                                                    <label>Customer Type</label>
+                                                    <select name="field4" class="field-select">
+                                                    <option value="Single">Single</option>
+                                                    <option value="Couple">Couple</option>
+                                                    <option value="Family">Family</option>
+                                                    <option value="Party">Party</option>
+                                                    </select>
+                                                </li>
+                                                <li>
+                                                    <label>Note </label>
+                                                    <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+                                                </li>
+                                                <li>
+                                                    <input type="submit" value="Submit" />
+                                                </li>
+                                            </ul>
+                                            </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
