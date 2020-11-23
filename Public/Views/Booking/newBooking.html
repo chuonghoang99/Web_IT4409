@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../../CSS/header.css" />
         <link rel="stylesheet" href="../../CSS/menu-left.css" />
         <link rel="stylesheet" href="../../CSS/page-content.css" />
+        <link rel="stylesheet" href="../../CSS/popup.css" />
     </head>
     <body>
         <div id="page-wrapper">
@@ -120,10 +121,26 @@
                         <div class="page-title">New Booking</div>
                     </div>
                     <div class="car-box">
-                        <div class="type-view">
-                            <a href="#" class="nav-show-list">Type</a>
-                            <a href="#" class="nav-show-list">Start</a>
-                            <a href="#" class="nav-show-list">End</a>
+                        <div class="car-search">
+                            <label for="type-room">Type Room:</label>
+                            <select id="type-room">
+                                <option value="STD">STD</option>
+                                <option value="SUP">SUP</option>
+                                <option value="DLX">DLX</option>
+                                <option value="SUI">SUI</option>
+                            </select>
+                            <label for="dateofbirth">Start</label>
+                            <input
+                                type="date"
+                                name="dateofbirth"
+                                id="dateofbirth"
+                            />
+                            <label for="dateofbirth">End</label>
+                            <input
+                                type="date"
+                                name="dateofbirth"
+                                id="dateofbirth"
+                            />
                             <a href="#" class="nav-show-list">Search</a>
                         </div>
                     </div>
@@ -157,69 +174,87 @@
                         <div class="card-body">
                             <table id="all_staff">
                                 <tr>
-                                    <th>Name</th>
                                     <th>Room</th>
-                                    <th>Start</th>
-                                    <th>End</th>
-                                    <th>Mobile</th>
-                                    <th>Admin</th>
+                                    <th>Type</th>
+                                    <th>Describe</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
                                 </tr>
 
                                 <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
+                                    <td>101</td>
+                                    <td>STD</td>
+                                    <td>phòng có 1 giường cho 1 người ngủ.</td>
+                                    <td>50k/h</td>
+                                    <td>ok</td>
                                 </tr>
                                 <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
+                                    <td>102</td>
+                                    <td>SUP</td>
+                                    <td>phòng có 2 giường cho 2 người ngủ</td>
+                                    <td>60k/h</td>
+                                    <td>ok</td>
                                 </tr>
                                 <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
+                                    <td>103</td>
+                                    <td>DLX</td>
+                                    <td>
+                                        phòng có 1 giường lớn cho 2 người ở ngủ.
+                                    </td>
+                                    <td>70k/h</td>
+                                    <td>ok</td>
                                 </tr>
                                 <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
+                                    <td>104</td>
+                                    <td>SUT</td>
+                                    <td>phòng lớn cho 3 người</td>
+                                    <td>100k/h</td>
+                                    <td>ok</td>
                                 </tr>
                             </table>
+                        </div>
+                        <button id="myBtn">Book</button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="info-content">
+                                    <p
+                                        style="
+                                            color: red;
+                                            font-size: 40px;
+                                            text-align: center;
+                                        "
+                                    >
+                                        Chúc ngủ ngon
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="page-footer"></div>
 
+            <script>
+                var modal = document.getElementById("myModal");
+
+                var btn = document.getElementById("myBtn");
+
+                var span = document.getElementsByClassName("close")[0];
+
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                };
+
+                span.onclick = function () {
+                    modal.style.display = "none";
+                };
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
+            </script>
             <script src="../../Script/scripts.js"></script>
         </div>
     </body>
