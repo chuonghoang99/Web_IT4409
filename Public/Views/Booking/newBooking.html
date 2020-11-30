@@ -218,35 +218,42 @@
                         <div id="myModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
+                                <h2>Thông tin đặt phòng</h2>
                                 <div class="info-content">
-                                    <p>Customer Info</p>
-                                    <div class="form-container">
+                                    
+                                    <div class="left-container">
                                         <form>
                                             <ul class="form-style-1">
-                                                <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="First" /> </li>
-                                                <li><label>Age<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="Age" /></li>
+                                                <li><label>Tên đầy đủ <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="Tên" /> </li>
+                                                <li><label>Tuổi<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="Tuổi" /></li>
                                                 <li>
-                                                    <label>Phone Number <span class="required">*</span></label>
-                                                    <input type="email" name="field3" class="field-long" />
-                                                </li>
-                                                <li>
-                                                    <label>Customer Type</label>
-                                                    <select name="field4" class="field-select">
-                                                    <option value="Single">Single</option>
-                                                    <option value="Couple">Couple</option>
-                                                    <option value="Family">Family</option>
-                                                    <option value="Party">Party</option>
+                                                    <label>Số CMND<span class="required">*</span></label>
+                                                    <input type="text" name="field3" class="field-long" />
                                                     </select>
                                                 </li>
                                                 <li>
-                                                    <label>Note </label>
+                                                    <label>Số điện thoại <span class="required">*</span></label>
+                                                    <input type="number" name="field3" class="field-long" />
+                                                </li>
+                                                <li>
+                                                    <label>Ghi chú </label>
                                                     <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
                                                 </li>
                                                 <li>
-                                                    <input type="submit" value="Submit" />
+                                                    <input type="submit" value="Xác nhận đặt" />
                                                 </li>
                                             </ul>
                                             </form>
+                                    </div>
+                                    <div class="right-container">
+                                        <div class="check-out-info">
+                                            <h3 class="check-out-header">Thông tin phòng đã đặt :</h3>
+                                            <p class="crawled booked-room">1 Phòng Standard, 2 Phòng King, 3 Phòng tổng thống, 1 Phòng Standard, 2 Phòng King, 3 Phòng tổng thống</p>
+                                            <h3>Chi phí ước tính :</h3>
+                                            <p class="crawled booked-estimate-price">10000000VND</p>
+                                            <h4>Lưu ý:</h4>
+                                            <p style="color:red">Chi phí trên chưa bao gồm các phí phát sinh như tiền đồ ăn uống và đồ dùng trong phòng!</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

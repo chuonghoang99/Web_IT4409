@@ -1,4 +1,12 @@
-
+.info-content{
+	width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.crawled {
+	font-size: 14px;
+	color:seagreen;
+}
 .form-style-1 {
 	margin:10px ;
 	max-width: 400px;
@@ -6,14 +14,24 @@
     font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     border: 1px solid #4691A4
 }
-.form-container {
-    border: 2px solid #4691A4;
+.left-container{
+	border: 2px solid #4691A4;
+	left: 0px;
+	width:50%;
 }
-.form-style-2 {
-	margin:10px right ;
+.right-container{
+	border: 2px solid #4691A4;
+	border-left: none;
+	right: 0px;
+	width:48%;
+}
+.check-out-info {
+	margin:10px auto ;
 	max-width: 400px;
 	padding: 20px 12px 10px 20px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	border: 1px solid #4691A4;
+	height:90%;
 }
 .form-style-1 li {
 	padding: 0;
