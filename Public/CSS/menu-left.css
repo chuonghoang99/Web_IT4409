@@ -114,7 +114,7 @@
     margin: 0;
     list-style: inside none none;
     display: block;
-    height: 20px;
+    /* height: 20px; Loi khong hien thi het Tên nút*/ 
     color: #d4d9eb;
     text-decoration: none;
     position: relative;
