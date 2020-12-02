@@ -1,0 +1,219 @@
+<table id="all_staff">
+                                <tr>
+                                    <th>Avatar</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Mobile</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../Img/dp.jpg"
+                                            alt="ava"
+                                            width="40px"
+                                            height="40px"
+                                        />
+                                    </td>
+                                    <td>Chuong</td>
+                                    <td>Manager</td>
+                                    <td>0983012606</td>
+                                    <td>chuong.hv99@gmail.com</td>
+                                    <td>Nam Dinh</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
+                            </table>

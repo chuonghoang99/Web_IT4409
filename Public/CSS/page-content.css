@@ -28,7 +28,7 @@
   font-size: 24px;
   font-weight: 300;
   line-height: 40.8px;
-  margin: 15px 25px;
+  margin: 15px 35px;
   padding: 0;
   text-align: left;
 }
@@ -82,5 +82,81 @@
   left: 2%;
   right: 2%;
   text-align: left;
+}
+
+.page-content .table-content .card-header {
+  width: 100%;
+  margin: 10px 35px;
+  font-size: 17px;
+  display: block;
+}
+
+
+
+
+.page-content .table-content .card-header .left-card  {
+  float: left;
+  width: 50%;
   
+}
+
+.page-content .table-content .card-header .right-card  {
+  float: left;
+  width: 50%;
+}
+
+
+.page-content .table-content .card-header::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+.page-content .table-content .card-body table {
+  width: 97%;
+  margin-left: 15px;
+  
+}
+
+.page-content .table-content .card-body table tr {
+  background-color: #fbfcfd;
+  border-spacing: 1.6px;
+  border-top: 1px solid #dee2e6;
+  color: #212529;
+  line-height: 25.5px;
+  text-align: center;
+  
+  
+}
+
+.page-content .table-content .card-body table th {
+  height: 43px;
+}
+
+.page-content .table-content .card-body table td {
+  height: 60px;
+}
+
+
+.page-content .table-content .card-body table tr:hover {
+  background-color: #f3f4f6;
+}
+
+
+.page-content .table-content .card-body table tr td img {
+  border: 1px solid #fff;
+  border-collapse: collapse;
+  border-radius: 50%;
+  border-spacing: 1.6px;
+  box-shadow: rgba(0,0,0,.2) 0 5px 25px 0;
+  box-sizing: border-box;
+  color: #212529;
+  cursor: pointer;
+  font-family: Poppins,sans-serif;
+  font-size: 15px;
+  line-height: 25.5px;
+  quotes: auto;
+  text-align: center;
+  vertical-align: middle;
 }
