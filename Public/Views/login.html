@@ -20,19 +20,21 @@
          </div>
          <div class="form-container">
             <div class="form-inner">
-                <form action="http://localhost:8080/WebProject-1.0-SNAPSHOT/login" method="post" class="login">
+                <!-- onsubmit="getResponse()" -->
+                <!-- action="http://localhost:8080/WebProject-1.0-SNAPSHOT/login" method="POST" -->
+                <form id="myForm" class="login">
                     <div class="field">
-                        <input name="username" type="text" placeholder="Email" required>
+                        <input name="username" type="text" id="username" placeholder="Email" required>
                     </div>
                     <div class="field">
-                        <input name="password" type="password" placeholder="Mật khẩu" required>
+                        <input name="password" type="password" id="password" placeholder="Mật khẩu" required>
                     </div>
                     <div class="pass-link">
                         <a href="#">Quên mật khẩu</a>
                     </div>
                     <div class="field btn">
                         <div class="btn-layer"></div>
-                        <input type="submit" value="Đăng nhập">
+                        <input type="submit" onclick="getResponse()" value="Đăng nhập">
                     </div>
                 </form>
             </div>
@@ -40,5 +42,18 @@
         </div>
       
    </body>
-   <!-- <script src="../JS/login.js"></script> -->
+   <script>
+        function getResponse(){
+            var xhttp = new XMLHttpRequest();
+            alert(document.getElementById("username").value());
+            xhttp.open("POST", "http://localhost:8080/WebProject_war/login?username="+document.getElementById("username").value()+"&password="+document.getElementById("password").value(), true);
+            xhttp.addEventListener( "load", function(event) {
+                alert( event.target.responseText );
+            } );
+            xhttp.addEventListener( "error", function( event ) {
+                alert( event );
+            } );
+            xhttp.send();
+        }
+   </script>
 </html>
