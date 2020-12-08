@@ -13,17 +13,20 @@ body {
 }
 
 .page-header {
+    opacity: 1;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 59px;
+    z-index: 1;
+    background-color: white ;
 }
 
 .page-header .page-logo {
     background-color: #3a3f51;
     height: 60px;
-    width: 235px;
+    width: 15%;
     float: left;
     color: #fff;
     font-size: 25px;
@@ -76,13 +79,13 @@ body {
 .top-menu {
     float: right;
     line-height: 24px;
-
     margin-bottom: 0;
     margin-right: 10px;
     margin-top: 0;
     padding: 0;
     height: 100%;
-    min-width: 300px;
+    min-width: 330px;
+   
 }
 
 .top-menu ul {
@@ -94,6 +97,7 @@ body {
     float: left;
     position: relative;
     display: inline-block;
+
 }
 
 ul .noti {
@@ -110,7 +114,25 @@ ul .user {
     float: left;
     line-height: 20px;
     text-align: left;
+    
 }
+
+
+ul .user button {
+    display: none;
+    height: 30px;
+    width: 100px;
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    top:47px;
+    left: 22px;
+}
+ul .user button a {
+    text-decoration: none;
+    color: black;
+}
+
 
 ul .user img {
     border-radius: 50%;

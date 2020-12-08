@@ -13,7 +13,7 @@ public class AccountController implements AccountInterface {
     @Override
     public boolean checkSignIn(Account account) {
         Connection connection=DAO.getConnection();
-        String sql="SELECT * FROM Account WHERE username='"+account.getUsername()+"' AND password='"+account.getPassword()+"'";
+        String sql="SELECT * FROM Admin WHERE username_admin='"+account.getUsername()+"' AND password_admin='"+account.getPassword()+"'";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
             ResultSet resultSet=preparedStatement.executeQuery();
@@ -70,6 +70,6 @@ public class AccountController implements AccountInterface {
     }
 
     public static void main(String[] args) {
-        System.out.println(new AccountController().checkSignIn(new Account("abc","123")));
+        System.out.println(new AccountController().checkSignIn(new Account("chuonghoang","1")));
     }
 }

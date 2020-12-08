@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>New Staff</title>
+        <link
+            rel="stylesheet"
+            href="../../lib/font-awesome/fontawesome-free-5.15.1-web/css/all.css"
+        />
+
+        <link rel="stylesheet" href="../../CSS/header.css" />
+        <link rel="stylesheet" href="../../CSS/menu-left.css" />
+        <link rel="stylesheet" href="../../CSS/page-content.css" />
+    </head>
+    <body>
+        <div id="page-wrapper">
+            <div class="page-header">
+                <div class="page-logo">
+                    <img src="../../Img/logo.png" alt="logo" />
+                    <span>HVC</span>
+                </div>
+
+                <div class="bars menu-togger sidebar-togger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <form class="search-form">
+                    <input type="text" placeholder="Search..." name="query" />
+                </form>
+                <div class="top-menu">
+                    <ul class="list-top">
+                        <li class="noti">
+                            <i class="far fa-bell"></i>
+                        </li>
+                        <li class="messages">
+                            <i class="far fa-envelope"></i>
+                        </li>
+                        <li class="user">
+                            <img src="../../Img/dp.jpg" alt="anh" />
+                            <span>Chuong</span>
+                            <i class="fas fa-caret-down dropdown-btn"></i>
+
+                            <button>
+                                <a href="../login.html">Đăng xuất</a>
+                            </button>
+                        </li>
+
+                        <li class="setting">
+                            <i class="fas fa-cog"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-inner"></div>
+            <div class="page-container">
+                <div class="menu-left">
+                    <div class="user-panel">
+                        <div class="user-pic">
+                            <img src="../../Img/dp.jpg" alt="user-pic" />
+                        </div>
+                        <div class="user-name">Chuong Hoang</div>
+                        <div class="user-job">Manager</div>
+                        <div class="user-extend">
+                            <i class="far fa-user"></i>
+                            <i class="far fa-envelope"></i>
+                            <i class="far fa-comments"></i>
+                            <i class="fas fa-sign-out-alt"></i>
+                        </div>
+                    </div>
+
+                    <div class="menu-heading">
+                        <span> -- Main</span>
+                    </div>
+
+                    <div class="list-menu">
+                        <a href="../index.html" class="list-parent">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+
+                        <li class="list-parent dropdown-btn">
+                            <i class="fas fa-life-ring left"></i>
+                            <span>Books</span>
+                            <i class="fas fa-caret-down down"></i>
+                        </li>
+
+                        <div class="dropdown-container">
+                            <a href="../Booking/viewBooking.html"
+                                >View Booking</a
+                            >
+                            <a href="../Booking/newBooking.html">New Booking</a>
+                            <a href="../Booking/editBooking.html"
+                                >Edit Booking</a
+                            >
+                        </div>
+
+                        <li class="list-parent dropdown-btn">
+                            <i class="fas fa-hospital-alt"></i>
+                            <span>Rooms</span>
+                            <i class="fas fa-caret-down"></i>
+                        </li>
+
+                        <div class="dropdown-container">
+                            <a href="../Room/viewRoom.html">View Room</a>
+                            <a href="../Room/newRoom.html">New Room</a>
+                            <a href="../Room/editRoom.html">Edit Room</a>
+                        </div>
+
+                        <li class="list-parent dropdown-btn">
+                            <i class="fas fa-users"></i>
+                            <span>Staff</span>
+                            <i class="fas fa-caret-down"></i>
+                        </li>
+
+                        <div class="dropdown-container">
+                            <a href="viewStaff.html">View Staff</a>
+                            <a href="newStaff.html">New Staff</a>
+                            <a href="editStaff.html">Edit Staff</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="page-bar">
+                        <div class="page-title">New Staff</div>
+                    </div>
+
+                    <div class="table-content"></div>
+                </div>
+            </div>
+            <div class="page-footer"></div>
+
+            <script src="../../Script/scripts.js"></script>
+        </div>
+    </body>
+</html>

@@ -12,10 +12,10 @@
 }
 
 .menu-left {
-    min-height: 1500px;
-    width: 235px;
+    min-height: 800px;
     background-color: #3a3f51;
     float: left;
+    width: 15%;
 }
 
 .menu-left:hover {
@@ -95,12 +95,45 @@
     height: 58px;
     color: #d4d9eb;
     text-decoration: none;
+    position: relative;
 }
 
 .menu-left .list-menu .list-parent:hover {
     background-color: #343848;
     line-height: 24px;
-} 
+
+}
+
+
+.menu-left .list-menu .dropdown-container{
+    display: none;
+}
+
+
+.menu-left .list-menu div a {
+    margin: 0;
+    list-style: inside none none;
+    display: block;
+    height: 20px;
+    color: #d4d9eb;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 60px;
+    background-color: #3a3f51;
+    
+}
+
+
+.menu-left .list-menu div a:hover {
+   
+    background-color: #343848;
+}
+
+
+
+
+
+
 
 .menu-left .list-menu .list-parent i,
 .menu-left .list-menu .list-parent span  {
@@ -109,30 +142,8 @@
     left: 15px;
 }
 
-
-
-
-
-
-
-
-/* .menu-left .list-menu .parent-list li a {
-    text-decoration: none;
-    color: #d4d9eb;
+.menu-left .list-menu .list-parent .down {
+    right: 5px;
 }
-
-
-.menu-left .list-menu .parent-list li a span {
-
-}
-
-.menu-left .list-menu .parent-list ul {
-    display: none;
-}
- */
-
-
-
-
 
 
