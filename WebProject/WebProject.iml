@@ -47,5 +47,6 @@
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-xc:1.9.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.20" level="project" />
     <orderEntry type="library" name="Maven: com.microsoft.sqlserver:mssql-jdbc:8.4.1.jre8" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20190722" level="project" />
   </component>
 </module>

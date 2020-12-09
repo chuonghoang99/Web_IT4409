@@ -2,7 +2,6 @@ package Controller;
 
 import Interface.AccountInterface;
 import Model.Account;
-import Model.Person;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
