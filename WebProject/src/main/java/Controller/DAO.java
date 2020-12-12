@@ -10,7 +10,7 @@ public class DAO {
         if(connection==null){
             try{
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                connection= DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=WebProject;username=sa;password=emsehanhphuc");
+                connection= DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databasename=WebProject;username=sa;password=123456");
                 return connection;
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
