@@ -90,10 +90,5 @@ public class BookingController implements BookingInterface {
 
 
     public static void main(String[] args) {
-        List<BookingDisplay> list=new BookingController().viewBooking(0,10);
-        for (BookingDisplay item:list
-             ) {
-            System.out.println(item.getCustomer().getName_customer());
-        }
     }
 }

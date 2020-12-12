@@ -1,5 +1,4 @@
-import AccountAPI.HelloWorld;
-import AccountAPI.SignIn;
+import AccountAPI.*;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -16,6 +15,8 @@ public class MyApplication extends Application{
         HashSet h = new HashSet<Class<?>>();
         h.add(HelloWorld.class);
         h.add(SignIn.class);
+        h.add(BookListAPI.class);
+        h.add(SignUp.class);
         return h;
     }
 }

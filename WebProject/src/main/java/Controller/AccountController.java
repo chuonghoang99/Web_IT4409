@@ -53,7 +53,6 @@ public class AccountController implements AccountInterface {
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
             ResultSet resultSet=preparedStatement.executeQuery();
-            System.out.println(sql);
             if (resultSet.next()){
                 return resultSet.getInt("role");
             }
@@ -64,6 +63,6 @@ public class AccountController implements AccountInterface {
     }
 
     public static void main(String[] args) {
-        System.out.println(new AccountController().getRole(new Account("khoa","123456")));
+        System.out.println(new AccountController().getRole(new Account("phamphong","12345")));
     }
 }

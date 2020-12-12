@@ -1,5 +1,8 @@
 package Model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Account {
     private String username;
     private String password;

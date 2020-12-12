@@ -1,11 +1,22 @@
 package Model;
 
-import java.sql.Date;
+import config.SqlDateAdapter;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.sql.Date;
+@XmlRootElement(name = "Booking")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Booking {
     private int id_customer;
     private int id_room;
+    @XmlJavaTypeAdapter(SqlDateAdapter.class)
+    @XmlElement(name = "start")
     private Date start;
+    @XmlJavaTypeAdapter(SqlDateAdapter.class)
     private Date expire;
 
     public Booking() {

@@ -11,7 +11,6 @@ public class SignIn {
     @POST
     public Response signIn(@QueryParam("username") String username,
                            @QueryParam("password") String password){
-        System.out.println(username);
         return Response.ok(String.valueOf(new AccountController().getRole(new Account(username,password)))).build();
     }
 }

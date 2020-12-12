@@ -6,11 +6,9 @@ import Model.BookingDisplay;
 import Model.Customer;
 import org.json.JSONObject;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
 import java.util.List;
 @Path("/book")
@@ -22,7 +20,8 @@ public class BookListAPI {
     }
 
     @POST
-    public boolean booking(String json){
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String booking(String json){
         JSONObject jsonObject=new JSONObject(json);
         String name_customer=jsonObject.getString("name_customer");
         String age=jsonObject.getString("age");
@@ -33,6 +32,9 @@ public class BookListAPI {
         String id_room=jsonObject.getString("id_room");
         String start=jsonObject.getString("start");
         String end=jsonObject.getString("end");
-        return new BookingController().newBooking(new Customer(name_customer,Integer.valueOf(age),Integer.valueOf(id_admin),phone,note,noid),new Booking(Integer.valueOf(id_room),0, Date.valueOf(start),Date.valueOf(end)));
+        if(new BookingController().newBooking(new Customer(name_customer,Integer.valueOf(age),Integer.valueOf(id_admin),phone,note,noid),new Booking(0,Integer.valueOf(id_room), Date.valueOf(start),Date.valueOf(end)))){
+            return "true";
+        }
+        return "false";
     }
 }

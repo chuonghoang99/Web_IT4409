@@ -1,9 +1,17 @@
 package Model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class BookingDisplay {
     private Customer customer;
     private Booking booking;
+
+    public BookingDisplay() {
+    }
+
     private Account account;
+
 
     public BookingDisplay(Customer customer, Booking booking, Account account) {
         this.customer = customer;
