@@ -12,20 +12,7 @@
         <link rel="stylesheet" href="../../CSS/menu-left.css" />
         <link rel="stylesheet" href="../../CSS/page-content.css" />
         <script>
-            getData=()=>{
-                let url = "http://localhost:8080/WebProject_war/book";
-             myHeaders = new Headers();
-            myHeaders.append('Content-Type', 'application/json');
-  
-            fetch(url, {
-                method: 'get',
-                headers: myHeaders,
-                mode: 'cors',
-                cache: 'default',
-            })
-            // .then(data => data.json())
-            .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
-            .then(data1 => {
+            fetchDateIntoTable=(data1)=>{
                 let data=data1.bookingDisplay;
                 console.log("/n/n/n/n/n/n",data);
                 let table = document.getElementById("all_booking_set");
@@ -40,14 +27,43 @@
                     let cellAction=row.insertCell(6);
                     cellCustomerName.innerHTML=(data[i].customer.name_customer);
                     cellRoomName.innerHTML=(data[i].booking.id_room);
-                    cellStartDate.innerHTML=(data[i].booking.start);
-                    cellEndDate.innerHTML=(data[i].booking.expire);
+                    let startDate= new Date(data[i].booking.start);
+                    let d= startDate.getDate(startDate),
+                        month=startDate.getMonth()+1,
+                        year=startDate.getFullYear(),
+                        hour =startDate.getHours(),
+                        minute=startDate.getMinutes();
+                    cellStartDate.innerHTML=(d+'/'+month+'/'+year+' - '+hour+'/'+minute);
+                    let endDate= new Date(data[i].booking.start);
+                    d= endDate.getDate(data[i].booking.expire);
+                        month=endDate.getMonth()+1;
+                        year=endDate.getFullYear();
+                        hour =endDate.getHours();
+                        minute=endDate.getMinutes();
+                    cellEndDate.innerHTML=(d+'/'+month+'/'+year+' - '+hour+'/'+minute);
                     cellPhoneNumber.innerHTML=("0166969966");
                     cellStaffName.innerHTML=(data[i].account.username);
                     cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-list" style="padding-right:5px;" aria-hidden="true"></i>');
                     cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-edit" style="padding-right:5px;"  ></i>');
                     cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-trash" ></i>');
                 }
+            }
+
+            getData=()=>{
+                let url = "http://localhost:8080/WebProject_war/book";
+             myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+    
+            fetch(url, {
+                method: 'get',
+                headers: myHeaders,
+                mode: 'cors',
+                cache: 'default',
+            })
+            // .then(data => data.json())
+            .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
+            .then(data1 => {
+                fetchDateIntoTable(data1);
             })
             .catch((err) => {
                 console.error(err);
@@ -193,7 +209,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="all_booking_set">
+                            <table id="all_booking_set" class="styled-table">
                                 <tr>
                                     <th>Name</th>
                                     <th>Room</th>

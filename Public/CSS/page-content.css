@@ -131,14 +131,11 @@
 }
 
 .page-content .table-content .card-body table tr {
-  background-color: #fbfcfd;
   border-spacing: 1.6px;
   border-top: 1px solid #dee2e6;
   color: #212529;
   line-height: 25.5px;
-  text-align: center;
-  
-  
+  text-align: center;  
 }
 
 .page-content .table-content .card-body table th {
@@ -187,4 +184,34 @@
   text-decoration: none;
   float: right;
   margin-right: 55px;
+}
+
+/* Style table By DangKhoa */
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
 }
