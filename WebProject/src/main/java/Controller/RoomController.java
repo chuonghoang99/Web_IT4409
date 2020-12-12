@@ -12,8 +12,9 @@ public class RoomController implements RoomInterface {
     public List<String> roomAvailable(Date from,Date to){
         Connection connection=DAO.getConnection();
         List<String> list=new ArrayList<>();
-        String sql="SELECT * FROM Room WHERE Room.name in " +
-                "(SELECT BookRoom.name FROM BookRoom where (BookRoom.start < '"+from+"' AND BookRoom.expire < '"+from+"') OR (BookRoom.start > '"+to+"' AND BookRoom.expire > '"+to+"'))";
+        String sql="SELECT * FROM Room, TypeRoom WHERE Room.id_room in " +
+                "(SELECT BookRoom.name FROM BookRoom where (BookRoom.start < '"+from+"' AND BookRoom.expire < '"+from+"') OR (BookRoom.start > '"+to+"' AND BookRoom.expire > '"+to+"')) " +
+                "AND Room.type_room=TypeRoom.id";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
             ResultSet resultSet=preparedStatement.executeQuery();
