@@ -8,12 +8,54 @@
             rel="stylesheet"
             href="../../lib/font-awesome/fontawesome-free-5.15.1-web/css/all.css"
         />
-
         <link rel="stylesheet" href="../../CSS/header.css" />
         <link rel="stylesheet" href="../../CSS/menu-left.css" />
         <link rel="stylesheet" href="../../CSS/page-content.css" />
+        <script>
+            getData=()=>{
+                let url = "http://localhost:8080/WebProject_war/book";
+             myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+  
+            fetch(url, {
+                method: 'get',
+                headers: myHeaders,
+                mode: 'cors',
+                cache: 'default',
+            })
+            // .then(data => data.json())
+            .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
+            .then(data1 => {
+                let data=data1.bookingDisplay;
+                console.log("/n/n/n/n/n/n",data);
+                let table = document.getElementById("all_booking_set");
+                for(let i=0;i<data.length;i++){
+                    let row =table.insertRow(i+1);
+                    let cellCustomerName=row.insertCell(0);
+                    let cellRoomName=row.insertCell(1);
+                    let cellStartDate=row.insertCell(2);
+                    let cellEndDate=row.insertCell(3);
+                    let cellPhoneNumber=row.insertCell(4);
+                    let cellStaffName=row.insertCell(5);
+                    let cellAction=row.insertCell(6);
+                    cellCustomerName.innerHTML=(data[i].customer.name_customer);
+                    cellRoomName.innerHTML=(data[i].booking.id_room);
+                    cellStartDate.innerHTML=(data[i].booking.start);
+                    cellEndDate.innerHTML=(data[i].booking.expire);
+                    cellPhoneNumber.innerHTML=("0166969966");
+                    cellStaffName.innerHTML=(data[i].account.username);
+                    cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-list" style="padding-right:5px;" aria-hidden="true"></i>');
+                    cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-edit" style="padding-right:5px;"  ></i>');
+                    cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-trash" ></i>');
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+            }
+        </script>
     </head>
-    <body>
+    <body onload="getData()">
         <div id="page-wrapper">
             <div class="page-header">
                 <div class="page-logo">
@@ -151,7 +193,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table id="all_staff">
+                            <table id="all_booking_set">
                                 <tr>
                                     <th>Name</th>
                                     <th>Room</th>
@@ -160,128 +202,6 @@
                                     <th>Mobile</th>
                                     <th>Staff</th>
                                     <th>Action</th>
-                                </tr>
-
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                    <td>
-                                        <i class="fa fa-list" aria-hidden="true"></i>
-                                        <i
-                                            class="fas fa-edit"
-                                            style="color: blue"
-                                        ></i>
-
-                                        <i
-                                            class="fas fa-trash"
-                                            style="color: red"
-                                        ></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                    <td>
-                                        <i class="fa fa-list" aria-hidden="true"></i>
-                                        <i
-                                            class="fas fa-edit"
-                                            style="color: blue"
-                                        ></i>
-
-                                        <i
-                                            class="fas fa-trash"
-                                            style="color: red"
-                                        ></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                    <td>
-                                        <i class="fa fa-list" aria-hidden="true"></i>
-                                        <i
-                                            class="fas fa-edit"
-                                            style="color: blue"
-                                        ></i>
-
-                                        <i
-                                            class="fas fa-trash"
-                                            style="color: red"
-                                        ></i>
-                                        
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                    <td>
-                                        <i class="fa fa-list" aria-hidden="true"></i>
-                                        <i
-                                            class="fas fa-edit"
-                                            style="color: blue"
-                                        ></i>
-
-                                        <i
-                                            class="fas fa-trash"
-                                            style="color: red"
-                                        ></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                    <td>
-                                        <i class="fa fa-list" aria-hidden="true"></i>
-                                        <i
-                                            class="fas fa-edit"
-                                            style="color: blue"
-                                        ></i>
-
-                                        <i
-                                            class="fas fa-trash"
-                                            style="color: red"
-                                        ></i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Do Nhu The</td>
-                                    <td>Manager</td>
-                                    <td>2020-11-22 00:00:00</td>
-                                    <td>2020-11-23 00:00:00</td>
-                                    <td>0983012606</td>
-                                    <td>chuonghoang</td>
-                                    <td>
-                                        <i class="fa fa-list" aria-hidden="true"></i>
-                                        <i
-                                            class="fas fa-edit"
-                                            style="color: blue"
-                                        ></i>
-
-                                        <i
-                                            class="fas fa-trash"
-                                            style="color: red"
-                                        ></i>
-                                    </td>
                                 </tr>
                             </table>
                         </div>
