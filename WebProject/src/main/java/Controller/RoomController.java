@@ -10,12 +10,14 @@ import java.util.List;
 
 public class RoomController implements RoomInterface {
     //checked
-    public List<Room> getPageRoom(Date from, Date to, int size, int page){
+    @Override
+    public List<Room> getPageRoom(Date from, Date to, int size, int page, int type){
         Connection connection=DAO.getConnection();
         List<Room> list=new ArrayList<>();
         String sql="SELECT * FROM Room, TypeRoom WHERE Room.id_room not in " +
                 "(SELECT BookRoom.id_room FROM BookRoom where (BookRoom.start > '"+from+"' AND BookRoom.start < '"+to+"') OR (BookRoom.start < '"+from+"' AND BookRoom.expire > '"+from+"')) " +
                 "AND Room.type_room=TypeRoom.id " +
+                "AND TypeRoom.id='" +type+"' "+
                 "ORDER BY id_room OFFSET "+(page-1)*size+" ROWS FETCH NEXT "+size+" ROWS ONLY";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
@@ -40,11 +42,13 @@ public class RoomController implements RoomInterface {
         return list;
     }
     //checked
-    public int getNumPage(Date from,Date to,int size){
+    @Override
+    public int getNumPage(Date from,Date to,int size,int type){
         Connection connection=DAO.getConnection();
         String sql="SELECT COUNT(*) FROM Room, TypeRoom WHERE Room.id_room not in " +
                 "(SELECT BookRoom.id_room FROM BookRoom where (BookRoom.start > '"+from+"' AND BookRoom.start < '"+to+"') OR (BookRoom.start < '"+from+"' AND BookRoom.expire > '"+from+"')) " +
-                "AND Room.type_room=TypeRoom.id ";
+                "AND Room.type_room=TypeRoom.id " +
+                "AND TypeRoom.id='" +type+"' ";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
             ResultSet resultSet=preparedStatement.executeQuery();
@@ -58,6 +62,6 @@ public class RoomController implements RoomInterface {
     }
 
     public static void main(String[] args) {
-        System.out.println(new RoomController().getNumPage(Date.valueOf("2020-12-23"),Date.valueOf("2020-12-25"),5));
+        System.out.println(new RoomController().getNumPage(Date.valueOf("2020-12-23"),Date.valueOf("2020-12-25"),1,1));
     }
 }
