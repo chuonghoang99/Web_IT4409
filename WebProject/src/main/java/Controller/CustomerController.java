@@ -51,7 +51,7 @@ public class CustomerController implements CustomerInterface {
 
         return list;
     }
-
+    //checked
     @Override
     public List<Customer> getCustomer(String name) {
         Connection connection=DAO.getConnection();

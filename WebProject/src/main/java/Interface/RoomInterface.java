@@ -1,13 +1,11 @@
 package Interface;
 
-import Model.Account;
+import Model.Room;
 
 import java.sql.Date;
 import java.util.List;
 
 public interface RoomInterface {
-    public List<String> roomAvailable(Date from,Date to);
-    public List<String> roomExpiredInTime(Date date);
-    public void bookRoom(String name, String id, Date start,Date expire);
-
+    public List<Room> getPageRoom(Date from, Date to, int size, int page);
+    public int getNumPage(Date from,Date to,int size);
 }

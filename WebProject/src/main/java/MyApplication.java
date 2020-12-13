@@ -1,4 +1,4 @@
-import AccountAPI.*;
+import API.*;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -17,6 +17,7 @@ public class MyApplication extends Application{
         h.add(SignIn.class);
         h.add(BookListAPI.class);
         h.add(SignUp.class);
+        h.add(RoomAPI.class);
         return h;
     }
 }

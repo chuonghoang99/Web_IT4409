@@ -8,30 +8,35 @@ import Model.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class BookingController implements BookingInterface {
 
     @Override
-    public List<BookingDisplay> viewBooking(int offset, int size) {
+    public List<BookingDisplay> viewBooking(int size, int page) {
         Connection connection=DAO.getConnection();
         List<BookingDisplay> list=new ArrayList<>();
         String sql="SELECT * FROM Customer, Bookroom, Account " +
                 "WHERE Customer.id_admin=Account.id " +
                 "AND Customer.id_customer=Bookroom.id_customer " +
                 "AND BookRoom.expire > GETDATE() " +
-                "ORDER BY Customer.id_customer OFFSET "+offset+" ROWS FETCH NEXT "+size+" ROWS ONLY";
+                "ORDER BY Customer.id_customer OFFSET "+(page-1)*size+" ROWS FETCH NEXT "+size+" ROWS ONLY";
         try {
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
             ResultSet resultSet=preparedStatement.executeQuery();
             while (resultSet.next()){
                 Account account=new Account();
+                account.setRole(resultSet.getInt("role"));
                 account.setUsername(resultSet.getString("username"));
                 Customer customer=new Customer();
+                customer.setAge(resultSet.getInt("age"));
+                customer.setId_admin(resultSet.getInt("id_customer"));
                 customer.setName_customer(resultSet.getString("name_customer"));
                 customer.setPhone(resultSet.getString("phone"));
+                customer.setNoid(resultSet.getString("noid"));
+                customer.setNote(resultSet.getNString("note"));
                 Booking booking=new Booking();
+                booking.setId_customer(resultSet.getInt("id_customer"));
                 booking.setId_room(resultSet.getInt("id_room"));
                 booking.setStart(resultSet.getDate("start"));
                 booking.setExpire(resultSet.getDate("expire"));
@@ -88,7 +93,27 @@ public class BookingController implements BookingInterface {
         return true;
     }
 
+    @Override
+    public int getNumPage(int size) {
+        Connection connection=DAO.getConnection();
+        String sql="SELECT COUNT(*) FROM Customer, Bookroom, Account " +
+                "WHERE Customer.id_admin=Account.id " +
+                "AND Customer.id_customer=Bookroom.id_customer " +
+                "AND BookRoom.expire > GETDATE() ";
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(sql);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            resultSet.next();
+            int numRecords=resultSet.getInt(1);
+            return numRecords%size==0?numRecords/size:numRecords/size+1;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
 
     public static void main(String[] args) {
+        System.out.println(new BookingController().getNumPage(1));
     }
 }

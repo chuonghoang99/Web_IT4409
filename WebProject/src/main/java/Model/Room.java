@@ -1,47 +1,52 @@
 package Model;
 
-import java.sql.Time;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Room {
-    private String name;
-    private Time start;
-    private Time expire;
-    private Account account;
+    private int id_room;
+    private int type_room;
+    private String status_room;
+    private TypeRoom typeRoom;
+
+    public TypeRoom getTypeRoom() {
+        return typeRoom;
+    }
+
+    public void setTypeRoom(TypeRoom typeRoom) {
+        this.typeRoom = typeRoom;
+    }
 
     public Room() {
     }
 
-    public String getName() {
-        return name;
+    public Room(int id_room, int type_room, String status_room) {
+        this.id_room = id_room;
+        this.type_room = type_room;
+        this.status_room = status_room;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId_room() {
+        return id_room;
     }
 
-
-    public Time getStart() {
-        return start;
+    public void setId_room(int id_room) {
+        this.id_room = id_room;
     }
 
-
-    public void setStart(Time start) {
-        this.start = start;
+    public int getType_room() {
+        return type_room;
     }
 
-    public void setExpire(Time expire) {
-        this.expire = expire;
+    public void setType_room(int type_room) {
+        this.type_room = type_room;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public String getStatus_room() {
+        return status_room;
     }
 
-    public Time getExpire() {
-        return expire;
-    }
-
-    public Account getAccount() {
-        return account;
+    public void setStatus_room(String status_room) {
+        this.status_room = status_room;
     }
 }
