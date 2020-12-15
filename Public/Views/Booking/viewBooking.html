@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../../CSS/page-content.css" />
         <script>
             fetchDateIntoTable=(data1)=>{
-                let data=data1.bookingDisplay;
+                let data=data1.bookingDisplayList;
                 console.log("/n/n/n/n/n/n",data);
                 let table = document.getElementById("all_booking_set");
                 for(let i=0;i<data.length;i++){
@@ -50,7 +50,7 @@
             }
 
             getData=()=>{
-                let url = "http://localhost:8080/WebProject_war/book";
+                let url = "http://localhost:8080/WebProject_war/book?size=5&page=1";
              myHeaders = new Headers();
             myHeaders.append('Content-Type', 'application/json');
     
@@ -66,7 +66,7 @@
                 fetchDateIntoTable(data1);
             })
             .catch((err) => {
-                console.error(err);
+                console.log(err);
             })
             }
         </script>
