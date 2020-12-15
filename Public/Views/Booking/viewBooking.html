@@ -11,65 +11,94 @@
         <link rel="stylesheet" href="../../CSS/header.css" />
         <link rel="stylesheet" href="../../CSS/menu-left.css" />
         <link rel="stylesheet" href="../../CSS/page-content.css" />
-        <script>
-            fetchDateIntoTable=(data1)=>{
-                let data=data1.bookingDisplay;
-                console.log("/n/n/n/n/n/n",data);
+        <link rel="stylesheet" href="../../CSS/popup.css" />
+        <link rel="stylesheet" href="../../CSS/dialog.css">
+         <script>
+            fetchDateIntoTable = (data1) => {
+                let data = data1.bookingDisplay;
+                console.log("/n/n/n/n/n/n", data);
                 let table = document.getElementById("all_booking_set");
-                for(let i=0;i<data.length;i++){
-                    let row =table.insertRow(i+1);
-                    let cellCustomerName=row.insertCell(0);
-                    let cellRoomName=row.insertCell(1);
-                    let cellStartDate=row.insertCell(2);
-                    let cellEndDate=row.insertCell(3);
-                    let cellPhoneNumber=row.insertCell(4);
-                    let cellStaffName=row.insertCell(5);
-                    let cellAction=row.insertCell(6);
-                    cellCustomerName.innerHTML=(data[i].customer.name_customer);
-                    cellRoomName.innerHTML=(data[i].booking.id_room);
-                    let startDate= new Date(data[i].booking.start);
-                    let d= startDate.getDate(startDate),
-                        month=startDate.getMonth()+1,
-                        year=startDate.getFullYear(),
-                        hour =startDate.getHours(),
-                        minute=startDate.getMinutes();
-                    cellStartDate.innerHTML=(d+'/'+month+'/'+year+' - '+hour+'/'+minute);
-                    let endDate= new Date(data[i].booking.start);
-                    d= endDate.getDate(data[i].booking.expire);
-                        month=endDate.getMonth()+1;
-                        year=endDate.getFullYear();
-                        hour =endDate.getHours();
-                        minute=endDate.getMinutes();
-                    cellEndDate.innerHTML=(d+'/'+month+'/'+year+' - '+hour+'/'+minute);
-                    cellPhoneNumber.innerHTML=("0166969966");
-                    cellStaffName.innerHTML=(data[i].account.username);
-                    cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-list" style="padding-right:5px;" aria-hidden="true"></i>');
-                    cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-edit" style="padding-right:5px;"  ></i>');
-                    cellAction.insertAdjacentHTML("beforeend",'<i class="fa fa-trash" ></i>');
+                for (let i = 0; i < data.length; i++) {
+                    let row = table.insertRow(i + 1);
+                    let cellCustomerName = row.insertCell(0);
+                    let cellRoomName = row.insertCell(1);
+                    let cellStartDate = row.insertCell(2);
+                    let cellEndDate = row.insertCell(3);
+                    let cellPhoneNumber = row.insertCell(4);
+                    let cellStaffName = row.insertCell(5);
+                    let cellAction = row.insertCell(6);
+                    cellCustomerName.innerHTML = data[i].customer.name_customer;
+                    cellRoomName.innerHTML = data[i].booking.id_room;
+                    let startDate = new Date(data[i].booking.start);
+                    let d = startDate.getDate(startDate),
+                        month = startDate.getMonth() + 1,
+                        year = startDate.getFullYear(),
+                        hour = startDate.getHours(),
+                        minute = startDate.getMinutes();
+                    cellStartDate.innerHTML =
+                        d +
+                        "/" +
+                        month +
+                        "/" +
+                        year +
+                        " - " +
+                        hour +
+                        "/" +
+                        minute;
+                    let endDate = new Date(data[i].booking.start);
+                    d = endDate.getDate(data[i].booking.expire);
+                    month = endDate.getMonth() + 1;
+                    year = endDate.getFullYear();
+                    hour = endDate.getHours();
+                    minute = endDate.getMinutes();
+                    cellEndDate.innerHTML =
+                        d +
+                        "/" +
+                        month +
+                        "/" +
+                        year +
+                        " - " +
+                        hour +
+                        "/" +
+                        minute;
+                    cellPhoneNumber.innerHTML = "0166969966";
+                    cellStaffName.innerHTML = data[i].account.username;
+                    cellAction.insertAdjacentHTML(
+                        "beforeend",
+                        '<i class="fa fa-list" style="padding-right:5px;" aria-hidden="true"></i>'
+                    );
+                    cellAction.insertAdjacentHTML(
+                        "beforeend",
+                        '<i class="fa fa-edit" style="padding-right:5px;"  ></i>'
+                    );
+                    cellAction.insertAdjacentHTML(
+                        "beforeend",
+                        '<i class="fa fa-trash" ></i>'
+                    );
                 }
-            }
+            };
 
-            getData=()=>{
+            getData = () => {
                 let url = "http://localhost:8080/WebProject_war/book";
-             myHeaders = new Headers();
-            myHeaders.append('Content-Type', 'application/json');
-    
-            fetch(url, {
-                method: 'get',
-                headers: myHeaders,
-                mode: 'cors',
-                cache: 'default',
-            })
-            // .then(data => data.json())
-            .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
-            .then(data1 => {
-                fetchDateIntoTable(data1);
-            })
-            .catch((err) => {
-                console.error(err);
-            })
-            }
-        </script>
+                myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                fetch(url, {
+                    method: "get",
+                    headers: myHeaders,
+                    mode: "cors",
+                    cache: "default",
+                })
+                    // .then(data => data.json())
+                    .then((response) => response.json()) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
+                    .then((data1) => {
+                        fetchDateIntoTable(data1);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                    });
+            };
+        </script> -->
     </head>
     <body onload="getData()">
         <div id="page-wrapper">
@@ -219,14 +248,113 @@
                                     <th>Staff</th>
                                     <th>Action</th>
                                 </tr>
+                                <tr>
+                                    <td>Do Nhu The</td>
+                                    <td>Manager</td>
+                                    <td>2020-11-22 00:00:00</td>
+                                    <td>2020-11-23 00:00:00</td>
+                                    <td>0983012606</td>
+                                    <td>chuonghoang</td>
+                                    <td>
+                                        <i
+                                            class="fas fa-info-circle"
+                                            id="btn-detail"
+                                        ></i>
+                                        <i
+                                            class="fas fa-edit"
+                                            style="color: blue"
+                                        ></i>
+
+                                        <i
+                                            class="fas fa-trash"
+                                            style="color: red"
+                                        ></i>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
+
+
+
+                        <div id="myModalDetail" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2>Booking Detail</h2>
+                                <div class="info-content">
+                                    
+                                    <div class="left-container">
+                                        <form>
+                                            <ul class="form-style-1">
+                                                <li><label>Room<span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="Room" /> </li>
+                                                <li><label>Start<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="Start" /></li>
+                                                <li><label>End<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="End" /></li>
+                                                
+                                                <li>
+                                                    <label>Customer Name<span class="required">*</span></label>
+                                                    <input type="text" name="customerName" class="field-long" />
+                                                </li>
+                                                <li>
+                                                    <label>Mobile Customer<span class="required">*</span></label>
+                                                    <input type="text" name="customerMobile" class="field-long" />
+                                                </li>
+                                                <li>
+                                                    <label>CMND Customer<span class="required">*</span></label>
+                                                    <input type="text" name="customerMobile" class="field-long" />
+                                                </li>
+                                               
+                                            </ul>
+                                        </form>
+                                    </div>
+                                    <div class="right-container" style="padding-left: 5px">
+                                        <form>
+                                            <ul class="form-style-1">
+                                               
+                                                <li><label>Start<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="Start" /></li>
+                                                <li><label>End<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="End" /></li>
+                                                
+                                                <li>
+                                                    <label>Customer Name<span class="required">*</span></label>
+                                                    <input type="text" name="customerName" class="field-long" />
+                                                </li>
+                                                <li>
+                                                    <label>Mobile Customer<span class="required">*</span></label>
+                                                    <input type="text" name="customerMobile" class="field-long" />
+                                                </li>
+                                                <li style="float: right; padding-top: 15px;">
+                                                    <input type="submit" value="Save" />
+                                                </li>
+                                            </ul>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
             <div class="page-footer"></div>
 
             <script src="../../Script/scripts.js"></script>
+            <script>
+                var modal = document.getElementById("myModalDetail");
+        
+                var btn = document.getElementById("btn-detail");
+        
+                var span = document.getElementsByClassName("close")[0];
+        
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                };
+        
+                span.onclick = function () {
+                    modal.style.display = "none";
+                };
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
+            </script>
         </div>
     </body>
 </html>
+
