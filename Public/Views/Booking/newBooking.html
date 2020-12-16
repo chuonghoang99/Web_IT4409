@@ -14,8 +14,46 @@
         <link rel="stylesheet" href="../../CSS/page-content.css" />
         <link rel="stylesheet" href="../../CSS/popup.css" />
         <link rel="stylesheet" href="../../CSS/dialog.css">
+        <script>
+            fetchDataIntoTable=()=>
+            {
+               
+            }     
+            getData=()=>{
+                let type = parseInt(document.getElementById('type-room').value);;
+                let from =document.getElementById('startDate').value;
+                from = (from?from:'2020-09-03');
+                let to =document.getElementById('endDate').value;
+                to=(to?to:'2020-12-20');
+                let size=document.getElementById('recordsPerPage').value;
+                let page =1; //TODO
+                console.log(typeof(type));
+                console.log(typeof(from));
+                console.log(from);
+                console.log(type);
+                let url = "http://localhost:8080/WebProject_war/room";
+                url=url+"?"+"type="+type+"&from="+from+"&to="+to+"&size="+size+"&page="+page;
+                myHeaders = new Headers();
+                myHeaders.append('Content-Type', 'application/json');
+        
+                fetch(url, {
+                    method: 'get',
+                    headers: myHeaders,
+                    mode: 'cors',
+                    cache: 'default',
+                })
+                // .then(data => data.json())
+                .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
+                .then(data1 => {
+                    console.log("11111111",data1);
+                })
+                .catch(err => {
+                    //console.log(err);
+                })
+            } 
+        </script>
     </head>
-    <body>
+    <body onload="getData()" >
         <div id="page-wrapper">
             <div class="page-header">
                 <div class="page-logo">
@@ -123,23 +161,23 @@
                     <div class="car-box">
                         <div class="car-search">
                             <label for="type-room">Type Room:</label>
-                            <select id="type-room">
-                                <option value="STD">STD</option>
-                                <option value="SUP">SUP</option>
-                                <option value="DLX">DLX</option>
-                                <option value="SUI">SUI</option>
+                            <select id="type-room" >
+                                <option  value="1" selected>STD</option>
+                                <option  value="2">SUP</option>
+                                <option  value="3">DLX</option>
+                                <option  value="4">SUI</option>
                             </select>
                             <label for="dateofbirth">Start</label>
                             <input
                                 type="date"
                                 name="dateofbirth"
-                                id="dateofbirth"
+                                id="startDate"
                             />
                             <label for="dateofbirth">End</label>
                             <input
                                 type="date"
                                 name="dateofbirth"
-                                id="dateofbirth"
+                                id="endDate"
                             />
                             <a href="#" class="nav-show-list">Search</a>
                         </div>
@@ -152,7 +190,7 @@
                                     <label for="length_staff">show</label>
                                     <select
                                         name="length_staff"
-                                        id="length_staff"
+                                        id="recordsPerPage"
                                     >
                                         <option value="5">5</option>
                                         <option value="10">10</option>
