@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Dang Nhap</title>
+      <link rel="stylesheet" href="../CSS/login.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script type="text/javascript">
+        
+        function submitInfo(){            
+            let username=document.getElementById("username").value;
+            let password=document.getElementById('password').value;
+            let param="?username="+username+"&password="+password;
+            let url = "http://localhost:8080/WebProject_war/login";
+            url=url+ param;
+             myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+  
+            fetch(url, {
+                method: 'post',
+                headers: myHeaders,
+                mode: 'cors',
+                cache: 'default',
+                body: ''
+            })
+            // .then(data => data.json())
+            .then(response=>response.text() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
+            .then(data => {
+                if(data!=="-1") 
+                {
+                    localStorage.setItem("role",data);
+                    location.replace("index.html");
+                }
+                else{
+                    loginFailed();
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+            return false;
+        }
+
+        loginFailed=()=>{
+            var p = document.createElement("p");
+            p.innerText = 'Sai tài khoản hoặc mật khẩu, vui lòng đăng nhập lại.';
+            p.style.fontSize = "14px";
+            p.style.color = "red";
+            p.style.marginTop = "2px";
+            var parent = document.getElementById("loginForm");
+            var child = document.getElementById("not-submit-yet");
+            parent.replaceChild(p, child);
+        }
+        </script>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Đăng nhập
+            </div>
+            <div class="title signup">
+               Signup Form
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="form-inner">
+                <form  id="loginForm" class="login" onsubmit="return(submitInfo())">
+                    <div class="field">
+                        <input id="username" name="username" type="text" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                        <input id="password" name="password" type="password" placeholder="Mật khẩu" required>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Quên mật khẩu</a>
+                    </div>
+                    <p id="not-submit-yet" >
+                    </p>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Đăng nhập" >
+                    </div>
+                </form>
+               
+            </div>
+            </form>
+        </div>
+      
+   </body>
+  
+</html>

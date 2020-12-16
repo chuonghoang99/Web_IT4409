@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>New Booking</title>
+        <link
+            rel="stylesheet"
+            href="../../lib/font-awesome/fontawesome-free-5.15.1-web/css/all.css"
+        />
+
+        <link rel="stylesheet" href="../../CSS/style.css" />
+       
+        <link rel="stylesheet" href="../../CSS/popup.css" />
+        <link rel="stylesheet" href="../../CSS/dialog.css">
+        <script>
+            fetchDataIntoTable=()=>
+            {
+               
+            }     
+            getData=()=>{
+                let type = parseInt(document.getElementById('type-room').value);;
+                let from =document.getElementById('startDate').value;
+                from = (from?from:'2020-09-03');
+                let to =document.getElementById('endDate').value;
+                to=(to?to:'2020-12-20');
+                let size=document.getElementById('recordsPerPage').value;
+                let page =1; //TODO
+                console.log(typeof(type));
+                console.log(typeof(from));
+                console.log(from);
+                console.log(type);
+                let url = "http://localhost:8080/WebProject_war/room";
+                url=url+"?"+"type="+type+"&from="+from+"&to="+to+"&size="+size+"&page="+page;
+                myHeaders = new Headers();
+                myHeaders.append('Content-Type', 'application/json');
+        
+                fetch(url, {
+                    method: 'get',
+                    headers: myHeaders,
+                    mode: 'cors',
+                    cache: 'default',
+                })
+                // .then(data => data.json())
+                .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
+                .then(data1 => {
+                    console.log("11111111",data1);
+                })
+                .catch(err => {
+                    //console.log(err);
+                })
+            } 
+        </script>
+    </head>
+    <body onload="getData()" >
+        <div id="page-wrapper">
+            <div class="page-header">
+                <div class="page-logo">
+                    <img src="../../Img/logo.png" alt="logo" />
+                    <span>HVC</span>
+                </div>
+
+                <div class="bars menu-togger sidebar-togger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <form class="search-form">
+                    <input type="text" placeholder="Search..." name="query" />
+                </form>
+                <div class="top-menu">
+                    <ul class="list-top">
+                        <li class="noti">
+                            <i class="far fa-bell"></i>
+                        </li>
+                        <li class="messages">
+                            <i class="far fa-envelope"></i>
+                        </li>
+                        <li class="user">
+                            <img src="../../Img/dp.jpg" alt="anh" />
+                            <span>Chuong</span>
+                            <i class="fas fa-caret-down dropdown-btn"></i>
+
+                            <button>
+                                <a href="../login.html">Đăng xuất</a>
+                            </button>
+                        </li>
+
+                        <li class="setting">
+                            <i class="fas fa-cog"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-inner"></div>
+            <div class="page-container">
+                <div class="menu-left">
+                    <div class="user-panel">
+                        <div class="user-pic">
+                            <img src="../../Img/dp.jpg" alt="user-pic" />
+                        </div>
+                        <div class="user-name">Chuong Hoang</div>
+                        <div class="user-job">Manager</div>
+                        <div class="user-extend">
+                            <i class="far fa-user"></i>
+                            <i class="far fa-envelope"></i>
+                            <i class="far fa-comments"></i>
+                            <i class="fas fa-sign-out-alt"></i>
+                        </div>
+                    </div>
+
+                    <div class="menu-heading">
+                        <span> -- Main</span>
+                    </div>
+
+                    <div class="list-menu">
+                        <a href="../index.html" class="list-parent">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+
+                        <li class="list-parent dropdown-btn">
+                            <i class="fas fa-life-ring left"></i>
+                            <span>Books</span>
+                            <i class="fas fa-caret-down down"></i>
+                        </li>
+
+                        <div class="dropdown-container">
+                            <a href="viewBooking.html">Booking management</a>
+                            <a href="newBooking.html">New Booking</a>
+                        </div>
+
+                        <li class="list-parent dropdown-btn">
+                            <i class="fas fa-hospital-alt"></i>
+                            <span>Rooms</span>
+                            <i class="fas fa-caret-down"></i>
+                        </li>
+
+                        <div class="dropdown-container">
+                            <a href="../Room/viewRoom.html">View Room</a>
+                            <a href="../Room/newRoom.html">New Room</a>
+                            <a href="../Room/editRoom.html">Edit Room</a>
+                        </div>
+
+                        <li class="list-parent dropdown-btn">
+                            <i class="fas fa-users"></i>
+                            <span>Staff</span>
+                            <i class="fas fa-caret-down"></i>
+                        </li>
+
+                        <div class="dropdown-container">
+                            <a href="viewRoom.html">View Staff</a>
+                            <a href="newRoom.html">New Staff</a>
+                            <a href="editStaff.html">Edit Staff</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="page-bar">
+                        <div class="page-title">New Booking</div>
+                    </div>
+                    <div class="car-box">
+                        <div class="car-search">
+                            <label for="type-room">Type Room:</label>
+                            <select id="type-room" >
+                                <option  value="1" selected>STD</option>
+                                <option  value="2">SUP</option>
+                                <option  value="3">DLX</option>
+                                <option  value="4">SUI</option>
+                            </select>
+                            <label for="dateofbirth">Start</label>
+                            <input
+                                type="date"
+                                name="dateofbirth"
+                                id="startDate"
+                            />
+                            <label for="dateofbirth">End</label>
+                            <input
+                                type="date"
+                                name="dateofbirth"
+                                id="endDate"
+                            />
+                            <a href="#" class="nav-show-list">Search</a>
+                        </div>
+                    </div>
+
+                    <div class="table-content">
+                        <div class="card-header">
+                            <div class="left-card">
+                                <form action="">
+                                    <label for="length_staff">show</label>
+                                    <select
+                                        name="length_staff"
+                                        id="recordsPerPage"
+                                    >
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                </form>
+                            </div>
+
+                            <div class="right-card">
+                                <form action="">
+                                    <label for="search_staff">Search</label>
+                                    <input type="text" class="search-staff" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="all_staff">
+                                <tr>
+                                    <th>Room</th>
+                                    <th>Type</th>
+                                    <th>Describe</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                </tr>
+
+                                <tr>
+                                    <td>101</td>
+                                    <td>STD</td>
+                                    <td>phòng có 1 giường cho 1 người ngủ.</td>
+                                    <td>50k/h</td>
+                                    <td>ok</td>
+                                </tr>
+                                <tr>
+                                    <td>102</td>
+                                    <td>SUP</td>
+                                    <td>phòng có 2 giường cho 2 người ngủ</td>
+                                    <td>60k/h</td>
+                                    <td>ok</td>
+                                </tr>
+                                <tr>
+                                    <td>103</td>
+                                    <td>DLX</td>
+                                    <td>
+                                        phòng có 1 giường lớn cho 2 người ở ngủ.
+                                    </td>
+                                    <td>70k/h</td>
+                                    <td>ok</td>
+                                </tr>
+                                <tr>
+                                    <td>104</td>
+                                    <td>SUT</td>
+                                    <td>phòng lớn cho 3 người</td>
+                                    <td>100k/h</td>
+                                    <td>ok</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <button id="myBtn">Book</button>
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2>Thông tin đặt phòng</h2>
+                                <div class="info-content">
+                                    
+                                    <div class="left-container">
+                                        <form>
+                                            <ul class="form-style-1">
+                                                <li><label>Tên đầy đủ <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="Tên" /> </li>
+                                                <li><label>Tuổi<span class="required">*</span></label><input type="text" name="field2" class="field-divided" placeholder="Tuổi" /></li>
+                                                <li>
+                                                    <label>Số CMND<span class="required">*</span></label>
+                                                    <input type="text" name="field3" class="field-long" />
+                                                    </select>
+                                                </li>
+                                                <li>
+                                                    <label>Số điện thoại <span class="required">*</span></label>
+                                                    <input type="number" name="field3" class="field-long" />
+                                                </li>
+                                                <li>
+                                                    <label>Ghi chú </label>
+                                                    <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
+                                                </li>
+                                                <li>
+                                                    <input type="submit" value="Xác nhận đặt" />
+                                                </li>
+                                            </ul>
+                                            </form>
+                                    </div>
+                                    <div class="right-container">
+                                        <div class="check-out-info">
+                                            <h3 class="check-out-header">Thông tin phòng đã đặt :</h3>
+                                            <p class="crawled booked-room">1 Phòng Standard, 2 Phòng King, 3 Phòng tổng thống, 1 Phòng Standard, 2 Phòng King, 3 Phòng tổng thống</p>
+                                            <h3>Thời gian :</h3>
+                                            <p class="crawled booked-time">01/11/2020-03/11/2020</p>
+                                            <h3>Chi phí ước tính :</h3>
+                                            <p class="crawled booked-estimate-price">10000000VND</p>
+                                            <h4>Lưu ý:</h4>
+                                            <p style="color:red">Chi phí trên chưa bao gồm các phí phát sinh như tiền đồ ăn uống và đồ dùng trong phòng!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-footer"></div>
+
+            <script>
+                var modal = document.getElementById("myModal");
+
+                var btn = document.getElementById("myBtn");
+
+                var span = document.getElementsByClassName("close")[0];
+
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                };
+
+                span.onclick = function () {
+                    modal.style.display = "none";
+                };
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
+            </script>
+            <script src="../../Script/scripts.js"></script>
+        </div>
+    </body>
+</html>
