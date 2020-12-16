@@ -19,7 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3abc808a-57f3-42f9-8eb2-82ba204970d3" name="Default Changelist" comment="" />
+    <list default="true" id="3abc808a-57f3-42f9-8eb2-82ba204970d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CSS/dialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/CSS/dialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/menu-left.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/newBooking.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSS/page-content.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Script/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Script/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Booking/editBooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Booking/editBooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Booking/newBooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Booking/newBooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Booking/viewBooking.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Booking/viewBooking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Room/editRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Room/editRoom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Room/newRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Room/newRoom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Room/viewRoom.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Room/viewRoom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Staff/editStaff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Staff/editStaff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Staff/newStaff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Staff/newStaff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Staff/viewStaff.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Staff/viewStaff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Views/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607878661903</updated>
       <workItem from="1607878664690" duration="40000" />
+      <workItem from="1608125392659" duration="11000" />
     </task>
     <servers />
   </component>
@@ -71,5 +89,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
