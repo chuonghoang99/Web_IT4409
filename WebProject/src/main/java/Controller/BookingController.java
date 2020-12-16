@@ -114,6 +114,6 @@ public class BookingController implements BookingInterface {
 
 
     public static void main(String[] args) {
-        System.out.println(new BookingController().getNumPage(1));
+        System.out.println(new BookingController().viewBooking(1,1).get(0).getCustomer().getId_admin());
     }
 }

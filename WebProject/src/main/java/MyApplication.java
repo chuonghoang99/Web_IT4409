@@ -1,4 +1,5 @@
 import API.*;
+import Configuration.JWTFilter;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -13,10 +14,11 @@ public class MyApplication extends Application{
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
+        h.add(JWTFilter.class);
         h.add(HelloWorld.class);
         h.add(SignIn.class);
         h.add(BookListAPI.class);
-        h.add(SignUp.class);
+        h.add(Admin.class);
         h.add(RoomAPI.class);
         return h;
     }

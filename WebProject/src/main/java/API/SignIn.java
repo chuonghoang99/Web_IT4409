@@ -1,5 +1,6 @@
 package API;
 
+import Authority.JWTAuth;
 import Controller.AccountController;
 import Model.Account;
 
@@ -10,6 +11,11 @@ public class SignIn {
     @POST
     public Response signIn(@QueryParam("username") String username,
                            @QueryParam("password") String password){
-        return Response.ok(String.valueOf(new AccountController().getRole(new Account(username,password)))).build();
+        int role=new AccountController().getRole(new Account(username,password));
+        if(role==-1){
+            return Response.status(401).entity("Error username or password").build();
+        }
+        String token=JWTAuth.generateJWT(username,String.valueOf(role));
+        return Response.ok(token).build();
     }
 }

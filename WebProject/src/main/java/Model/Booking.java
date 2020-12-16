@@ -1,6 +1,6 @@
 package Model;
 
-import config.SqlDateAdapter;
+import Configuration.SqlDateAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
