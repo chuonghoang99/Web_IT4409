@@ -12,6 +12,25 @@
         <link rel="stylesheet" href="../../CSS/style.css" />
     </head>
     <body>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+                >&times;</a
+            >
+            <div class="overlay-content">
+                <a href="viewBooking.html">View Booking</a>
+                <a href="newBooking.html">New Booking</a>
+                <a href="editBooking.html">Edit Booking</a>
+
+                <a href="../Room/viewRoom.html">View Room</a>
+                <a href="../Room/newRoom.html">New Room</a>
+                <a href="../Room/editRoom.html">Edit Room</a>
+
+                <a href="../Staff/viewStaff.html">View Staff</a>
+                <a href="../Staff/newStaff.html">New Staff</a>
+                <a href="../Staff/editStaff.html">Edit Staff</a>
+            </div>
+        </div>
+
         <div id="page-wrapper">
             <div class="page-header">
                 <div class="page-logo">
@@ -20,7 +39,7 @@
                 </div>
 
                 <div class="bars menu-togger sidebar-togger">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" onclick="openNav()"></i>
                 </div>
                 <form class="search-form">
                     <input type="text" placeholder="Search..." name="query" />
