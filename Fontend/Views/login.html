@@ -27,16 +27,17 @@
             // .then(data => data.json())
             .then(response=>response.text() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
             .then(data => {
-                if(data!=="-1") 
+                if(data!=="Error username or password") 
                 {
-                    localStorage.setItem("role",data);
-                    location.replace("index.html");
+                    localStorage.setItem("token",data);
+                    //location.replace("index.html");
                 }
                 else{
                     loginFailed();
                 }
             })
             .catch((err) => {
+                loginFailed();
                 console.error(err);
             })
             return false;

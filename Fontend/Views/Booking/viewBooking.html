@@ -52,14 +52,16 @@
 
             getData=()=>{
                 let url = "http://localhost:8080/WebProject_war/book?size=5&page=1";
-             myHeaders = new Headers();
+                let authToken =localStorage.getItem("token");
+                myHeaders = new Headers();
                 myHeaders.append('Content-Type', 'application/json');
-        
+                myHeaders.append('Authorization', authToken);
+                myHeaders.append('Accept', '*/*');
                 fetch(url, {
                     method: 'get',
-                    headers: myHeaders,
                     mode: 'cors',
                     cache: 'default',
+                    headers: myHeaders,
                 })
                 // .then(data => data.json())
                 .then(response=>response.json() ) //Chuyen response ve dinh dang de co the doc duoc data: https://stackoverflow.com/questions/54656223/fetch-function-return-promise-pending/54656340
